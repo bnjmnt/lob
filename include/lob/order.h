@@ -7,17 +7,16 @@ namespace lob {
 
 enum class Side : uint8_t {
   kBid,
-  kAsk
+  kAsk,
 };
 
 struct Order {
   std::uint64_t id = 0;
   std::uint64_t price_ticks = 0;
-  std::uint32_t remaining_quantity = 0;
-  Side side = Side::kBid;
-
   Order* next = nullptr;
   Order* prev = nullptr;
+  std::uint32_t remaining_quantity = 0;
+  Side side = Side::kBid;
 };
 
 }  // namespace lob
