@@ -25,6 +25,19 @@ void PriceLevel::PushBack(Order* order) {
   total_quantity_ += order->remaining_quantity;
 }
 
+void PriceLevel::PushFront(Order* order) {
+  if (empty()) {
+    tail_ = order;
+  } else {
+    head_->prev = order;
+    order->next = head_;
+  }
+  head_ = order;
+  order->prev = nullptr;
+  order->level = this;
+  total_quantity_ += order->remaining_quantity;
+}
+
 Order* PriceLevel::PopFront() {
   Order* order = head_;
   head_ = head_->next;

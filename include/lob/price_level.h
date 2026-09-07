@@ -12,6 +12,7 @@ class PriceLevel {
   explicit PriceLevel(std::uint64_t price_ticks);
 
   void PushBack(Order* order);
+  void PushFront(Order* order);
   Order* PopFront();
   bool Remove(Order* order);
 
