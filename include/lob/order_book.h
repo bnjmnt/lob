@@ -12,18 +12,15 @@
 #include "lob/order.h"
 #include "lob/order_pool.h"
 #include "lob/price_level.h"
+#include "lob/trade.h"
 
 namespace lob {
-
-enum class AddOrderError {
-  kPoolExhausted,
-};
 
 class OrderBook {
  public:
   explicit OrderBook(std::uint64_t max_orders);
 
-  std::expected<std::uint64_t, AddOrderError> AddOrder(
+  std::expected<AddOrderResult, AddOrderFailure> AddOrder(
       std::uint64_t price_ticks, std::uint32_t quantity, Side side);
   bool CancelOrder(std::uint64_t order_id);
 
@@ -31,6 +28,13 @@ class OrderBook {
   std::optional<std::uint64_t> BestAsk() const;
 
  private:
+  template <typename PriceLevelMap>
+  std::uint32_t MatchAgainst(PriceLevelMap& opposite_side,
+                             std::uint64_t incoming_id,
+                             std::uint64_t price_ticks, bool is_bid,
+                             std::uint32_t quantity,
+                             std::vector<Trade>& trades);
+
   std::uint64_t NextOrderId();
 
   std::flat_map<std::uint64_t, std::unique_ptr<PriceLevel>, std::greater<>>
