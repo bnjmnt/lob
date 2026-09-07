@@ -21,6 +21,7 @@ void PriceLevel::PushBack(Order* order) {
   }
   tail_ = order;
   order->next = nullptr;
+  order->level = this;
   total_quantity_ += order->remaining_quantity;
 }
 
@@ -33,6 +34,7 @@ Order* PriceLevel::PopFront() {
     tail_ = nullptr;
   }
   order->next = nullptr;
+  order->level = nullptr;
   total_quantity_ -= order->remaining_quantity;
   return order;
 }
@@ -48,6 +50,7 @@ bool PriceLevel::Remove(Order* order) {
   } else {
     tail_ = order->prev;
   }
+  order->level = nullptr;
   total_quantity_ -= order->remaining_quantity;
   return empty();
 }

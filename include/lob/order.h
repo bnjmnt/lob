@@ -5,6 +5,8 @@
 
 namespace lob {
 
+class PriceLevel;
+
 enum class Side : uint8_t {
   kBid,
   kAsk,
@@ -15,6 +17,7 @@ struct Order {
   std::uint64_t price_ticks = 0;
   Order* next = nullptr;
   Order* prev = nullptr;
+  PriceLevel* level = nullptr;
   std::uint32_t remaining_quantity = 0;
   Side side = Side::kBid;
 };
