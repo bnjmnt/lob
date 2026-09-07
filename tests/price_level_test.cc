@@ -178,5 +178,68 @@ TEST(PriceLevelTest, RemoveDecrementsTotalQuantity) {
   EXPECT_EQ(level.total_quantity(), 20u);
 }
 
+TEST(PriceLevelTest, PushBackSetsOrderLevelBackPointer) {
+  PriceLevel level(100);
+  Order order;
+  order.remaining_quantity = 10;
+
+  level.PushBack(&order);
+
+  EXPECT_EQ(order.level, &level);
+}
+
+TEST(PriceLevelTest, PushBackSetsBackPointerOnEveryOrder) {
+  PriceLevel level(100);
+  Order first;
+  first.remaining_quantity = 10;
+  Order second;
+  second.remaining_quantity = 20;
+
+  level.PushBack(&first);
+  level.PushBack(&second);
+
+  EXPECT_EQ(first.level, &level);
+  EXPECT_EQ(second.level, &level);
+}
+
+TEST(PriceLevelTest, PopFrontClearsOrderLevelBackPointer) {
+  PriceLevel level(100);
+  Order order;
+  order.remaining_quantity = 10;
+  level.PushBack(&order);
+
+  Order* popped = level.PopFront();
+
+  EXPECT_EQ(popped->level, nullptr);
+}
+
+TEST(PriceLevelTest, RemoveClearsOrderLevelBackPointer) {
+  PriceLevel level(100);
+  Order first;
+  first.remaining_quantity = 10;
+  Order second;
+  second.remaining_quantity = 20;
+  level.PushBack(&first);
+  level.PushBack(&second);
+
+  level.Remove(&first);
+
+  EXPECT_EQ(first.level, nullptr);
+}
+
+TEST(PriceLevelTest, RemoveDoesNotClearBackPointerOfRemainingOrders) {
+  PriceLevel level(100);
+  Order first;
+  first.remaining_quantity = 10;
+  Order second;
+  second.remaining_quantity = 20;
+  level.PushBack(&first);
+  level.PushBack(&second);
+
+  level.Remove(&first);
+
+  EXPECT_EQ(second.level, &level);
+}
+
 }  // namespace
 }  // namespace lob
