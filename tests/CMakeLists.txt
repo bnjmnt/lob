@@ -9,6 +9,7 @@ FetchContent_MakeAvailable(googletest)
 add_executable(lob_tests
   order_test.cc
   order_pool_test.cc
+  price_level_test.cc
 )
 target_link_libraries(lob_tests PRIVATE lob_core lob_warnings GTest::gtest_main)
 

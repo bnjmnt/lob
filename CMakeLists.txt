@@ -16,6 +16,7 @@ target_compile_options(lob_warnings INTERFACE
 
 add_library(lob_core
   src/order_pool.cc
+  src/price_level.cc
 )
 target_include_directories(lob_core PUBLIC include)
 target_link_libraries(lob_core PRIVATE lob_warnings)
