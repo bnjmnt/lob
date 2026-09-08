@@ -46,13 +46,13 @@ ctest --test-dir build --output-on-failure
 ```
 lob/
 ├── include/lob/
-│   ├── order.h          # Order struct, intrusive list pointers, PriceLevel back-pointer
+│   ├── order.h           # Order struct, intrusive list pointers, PriceLevel back-pointer
 │   ├── order_pool.h      # Free-list order allocator
 │   ├── price_level.h     # FIFO queue of orders at one price
 │   ├── order_book.h      # Both sides of the book, matching, cancel, best bid/ask
 │   └── trade.h           # Trade, AddOrderResult, AddOrderFailure
-├── src/                   # Implementations + main.cc
-└── tests/                 # GoogleTest unit tests
+├── src/                  # Implementations + main.cc
+└── tests/                # GoogleTest unit tests
 ```
 
 ## Status
