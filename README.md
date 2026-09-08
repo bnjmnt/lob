@@ -44,7 +44,7 @@ ctest --test-dir build --output-on-failure
 ## Project layout
 
 ```
-lob/
+lob-matching-engine/
 ├── include/lob/
 │   ├── order.h           # Order struct, intrusive list pointers, PriceLevel back-pointer
 │   ├── order_pool.h      # Free-list order allocator
