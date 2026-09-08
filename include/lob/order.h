@@ -1,5 +1,5 @@
-#ifndef LOB_INCLUDE_LOB_ORDER_H_
-#define LOB_INCLUDE_LOB_ORDER_H_
+#ifndef LOB_MATCHING_ENGINE_INCLUDE_LOB_ORDER_H_
+#define LOB_MATCHING_ENGINE_INCLUDE_LOB_ORDER_H_
 
 #include <cstdint>
 
@@ -24,4 +24,4 @@ struct Order {
 
 }  // namespace lob
 
-#endif  // LOB_INCLUDE_LOB_ORDER_H_
+#endif  // LOB_MATCHING_ENGINE_INCLUDE_LOB_ORDER_H_

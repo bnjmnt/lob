@@ -1,4 +1,4 @@
-# lob
+# Limit Order Book Matching Engine
 
 A C++23 limit order book matching engine.
 

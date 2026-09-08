@@ -1,5 +1,5 @@
-#ifndef LOB_INCLUDE_LOB_TRADE_H_
-#define LOB_INCLUDE_LOB_TRADE_H_
+#ifndef LOB_MATCHING_ENGINE_INCLUDE_LOB_TRADE_H_
+#define LOB_MATCHING_ENGINE_INCLUDE_LOB_TRADE_H_
 
 #include <cstdint>
 #include <vector>
@@ -30,4 +30,4 @@ struct AddOrderFailure {
 
 }  // namespace lob
 
-#endif  // LOB_INCLUDE_LOB_TRADE_H_
+#endif  // LOB_MATCHING_ENGINE_INCLUDE_LOB_TRADE_H_

@@ -1,5 +1,5 @@
-#ifndef LOB_INCLUDE_LOB_PRICE_LEVEL_H_
-#define LOB_INCLUDE_LOB_PRICE_LEVEL_H_
+#ifndef LOB_MATCHING_ENGINE_INCLUDE_LOB_PRICE_LEVEL_H_
+#define LOB_MATCHING_ENGINE_INCLUDE_LOB_PRICE_LEVEL_H_
 
 #include <cstdint>
 
@@ -29,4 +29,4 @@ class PriceLevel {
 
 }  // namespace lob
 
-#endif  // LOB_INCLUDE_LOB_PRICE_LEVEL_H_
+#endif  // LOB_MATCHING_ENGINE_INCLUDE_LOB_PRICE_LEVEL_H_

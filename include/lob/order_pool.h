@@ -1,5 +1,5 @@
-#ifndef LOB_INCLUDE_LOB_ORDER_POOL_H_
-#define LOB_INCLUDE_LOB_ORDER_POOL_H_
+#ifndef LOB_MATCHING_ENGINE_INCLUDE_LOB_ORDER_POOL_H_
+#define LOB_MATCHING_ENGINE_INCLUDE_LOB_ORDER_POOL_H_
 
 #include <cstddef>
 #include <vector>
@@ -25,4 +25,4 @@ class OrderPool {
 
 }  // namespace lob
 
-#endif  // LOB_INCLUDE_LOB_ORDER_POOL_H_
+#endif  // LOB_MATCHING_ENGINE_INCLUDE_LOB_ORDER_POOL_H_
